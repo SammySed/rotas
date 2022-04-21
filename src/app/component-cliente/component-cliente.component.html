@@ -1,0 +1,43 @@
+<form (ngSubmit)="onSubmit()">
+<br>
+<h3>Cadastro de Clientes</h3>
+
+<div class="mb-2">
+    <label for="inputNome" class="form-label">Nome: </label>
+    <input type="text" class="form-control" id="inputNome" name = "nome" [(ngModel)]="model.nome">
+  </div>
+
+  <div class="mb-2">
+    <label for="inputDocumento" class="form-label">Documento: </label>
+    <input type="text" class="form-control" id="inputDocumento" name = "documento" [(ngModel)]="model.documento">
+  </div>
+
+  <div class="mb-2">
+    <label for="inputEndereco" class="form-label">Endereço: </label>
+    <input type="text" class="form-control" id="inputEndereco" name = "endereco" [(ngModel)]="model.endereco">
+  </div>
+
+
+  <button type="button" (click)="exibirTabela()" class="btn btn-success">Esconder Tabela</button>
+  <table class="table table-striped" *ngIf="this.esconderTabela">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tipoPessoa of tipoPessoa">
+        <th scope="row">{{tipoPessoa.id}}</th>
+        <td>{{tipoPessoa.nome}}</td>      
+      </tr>
+    </tbody>
+  </table>
+
+
+<br>
+  <button type="submit" class="btn btn-warning">Salvar</button>
+
+
+</form>
